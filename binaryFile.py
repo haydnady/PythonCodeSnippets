@@ -22,10 +22,12 @@ def readBinFile(fileName):
     return fileContent
 
 
-
+def unpackBinContent(fileContent):
+    return print(struct.unpack("i" * ((len(fileContent) -24) // 4), fileContent[20:-4]))
 
 
 if __name__ == "__main__":
     fileName = getFile()
-    print(readBinFile(fileName))
+    content = readBinFile(fileName)
+    print(unpackBinContent(content))
     
