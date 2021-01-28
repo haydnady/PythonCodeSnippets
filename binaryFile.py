@@ -21,7 +21,7 @@ def readBinFile(fileName):
 
     return fileContent
 
-
+# TODO: Doesn't work for all files, explain what it exactly works for.
 def unpackBinContent(fileContent):
     return print(struct.unpack("i" * ((len(fileContent) -24) // 4), fileContent[20:-4]))
 
@@ -29,5 +29,6 @@ def unpackBinContent(fileContent):
 if __name__ == "__main__":
     fileName = getFile()
     content = readBinFile(fileName)
-    print(unpackBinContent(content))
+    print(content)
+    # print(unpackBinContent(content))
     
