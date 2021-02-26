@@ -35,4 +35,4 @@ class DataProcessingThread(QThread):
 
     # Processing function
     def dataProcessingFunc(self):
-        pass
+        self.message.emit("Data")
