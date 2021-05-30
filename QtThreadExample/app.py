@@ -5,6 +5,7 @@
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from QtThreadExample import dataProcessingThread
+from ui_mainwindow import Ui_MainWindow  # UI class
 from os.path import expanduser
 from PySide6 import QtCore
 import sys
