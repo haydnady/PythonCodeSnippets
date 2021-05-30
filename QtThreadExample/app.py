@@ -58,4 +58,4 @@ if __name__ == "__main__":
 
     # Show the window and start the app
     MainWindow.show()
-    app.exec_()
+    app.exec()
