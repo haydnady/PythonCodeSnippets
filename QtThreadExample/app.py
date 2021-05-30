@@ -31,6 +31,7 @@ class TheApp(QMainWindow, Ui_MainWindow):
     def startThreads(self):
         # Start data processing thread
         self.dataProcessingWorkerThread = dataProcessingThread.DataProcessingThread()
+        self.dataProcessingWorkerThread.start()
 
         # Update textBrowser (signal/slot for progress window)
         self.dataProcessingWorkerThread.message.connect(self.updateTextBrowser)
