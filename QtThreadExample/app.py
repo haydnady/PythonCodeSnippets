@@ -34,7 +34,7 @@ class TheApp(QMainWindow, Ui_MainWindow):
 
         # Update textBrowser (signal/slot for progress window)
         self.dataProcessingWorkerThread.message.connect(self.updateTextBrowser)
-        self.dataProcessingWorkerThread.finished.connect(self.stopRunningThread)
+        self.dataProcessingWorkerThread.finished.connect(self.stopRunningThreads)
 
 
     def stopRunningThreads(self):
