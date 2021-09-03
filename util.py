@@ -1,5 +1,5 @@
 """
-    This file is for general functions that are used across multiple modules.
+    This file is for general functions.
 """
 
 from tkinter.filedialog import askopenfilenames, askopenfilename
