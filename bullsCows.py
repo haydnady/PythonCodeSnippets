@@ -10,27 +10,33 @@ def getHint(secret, guess):
     cows = 0
     modString = ""
     
-    for idx, value in enumerate(secret):
-        # Finds match and location is correct
-        if (value in guess) and (value == guess[idx]):
-            bulls += 1
-            # x out the values that should no longer be matched
-            guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
-            modString += "x"
+    if 1 <= len(secret) and len(secret) <= 1000 and \
+       1 <= len(guess) and len(guess) <= 1000 and \
+       len(secret) == len(guess) and \
+       secret.isdigit() and \
+       guess.isdigit():  # Constraints
 
-        else:
-            modString += value
-
-    if modString != guess:  # If strings are the same, break, there are no wrong location matches
-        for idx, value in enumerate(modString):
-            # Finds match and location is NOT correct
-            if (value in guess) and (value != guess[idx]):
-                cows += 1
-
-                print("modString", modString, "letter", value, "guess letter", guess[idx], "guess", guess)
-                print("-------------------------", idx)
+        for idx, value in enumerate(secret):
+            # Finds match and location is correct
+            if (value in guess) and (value == guess[idx]):
+                bulls += 1
                 # x out the values that should no longer be matched
                 guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
+                modString += "x"
+
+            else:
+                modString += value
+
+        if modString != guess:  # If strings are the same, break, there are no wrong location matches
+            for idx, value in enumerate(modString):
+                # Finds match and location is NOT correct
+                if (value in guess) and (value != guess[idx]):
+                    cows += 1
+
+                    print("modString", modString, "letter", value, "guess letter", guess[idx], "guess", guess)
+                    print("-------------------------", idx)
+                    # x out the values that should no longer be matched
+                    guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
 
     return str(bulls) + "A" + str(cows) + "B"
 
