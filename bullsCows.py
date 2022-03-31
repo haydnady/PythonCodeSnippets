@@ -6,15 +6,15 @@ def getHint(secret, guess):
     :type guess: str
     :rtype: str
     """
-    countC = 0
-    correctValues = 0
+    bulls = 0
+    cows = 0
     modString = ""
     
     for idx, value in enumerate(secret):
         # Finds match and location is correct
         if (value in guess) and (value == guess[idx]):
-            countC += 1
-
+            bulls += 1
+            # x out the values that should no longer be matched
             guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
             modString += "x"
 
@@ -25,14 +25,14 @@ def getHint(secret, guess):
         for idx, value in enumerate(modString):
             # Finds match and location is NOT correct
             if (value in guess) and (value != guess[idx]):
-                correctValues += 1
+                cows += 1
 
                 print("modString", modString, "letter", value, "guess letter", guess[idx], "guess", guess)
                 print("-------------------------", idx)
-
+                # x out the values that should no longer be matched
                 guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
 
-    return str(countC) + "A" + str(correctValues) + "B"
+    return str(bulls) + "A" + str(cows) + "B"
 
 
 print("==============>", getHint("1807", "7810"))
