@@ -53,20 +53,20 @@ def getHint(secret, guess):
 
 
 print("==============>", getHint("2962", "7236"))
-assert "==============>", getHint("2962", "7236") == "0A2B"
+assert getHint("2962", "7236") == "0A2B"
 
 print("==============>", getHint("11", "01"))
-assert "==============>", getHint("11", "01") == "1A0B"
-# assert "==============>", getHint("0765860239", "5736153483")
-# assert "==============>", getHint("1807", "7810")
-# assert "==============>", getHint("1123", "0110")
-# assert "==============>", getHint("1123", "0111")
+assert getHint("11", "01") == "1A0B"
+# assert getHint("0765860239", "5736153483")
+# assert getHint("1807", "7810")
+# assert getHint("1123", "0110")
+# assert getHint("1123", "0111")
 print("==============>", getHint("1123", "0111"))
-assert "==============>", getHint("1123", "1111") == "1A1B"
-# assert "==============>", getHint("1123", "1123")
-# assert "==============>", getHint("1122", "2211")
-# assert "==============>", getHint("11", "10")
-# assert "==============>", getHint("1", "1")
+assert getHint("1123", "1111") == "1A1B"
+# assert getHint("1123", "1123")
+# assert getHint("1122", "2211")
+# assert getHint("11", "10")
+# assert getHint("1", "1")
 
 # 
 # 
