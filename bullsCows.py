@@ -1,25 +1,4 @@
-# def getHint(secret, guess):
-#     """
-#     :type secret: str
-#     :type guess: str
-#     :rtype: str
-#     """
-#     countC = 0
-#     correctValues = 0
-#     count = 0
-    
-#     for i in secret:
-
-#         if i in guess:
-#             if i != guess[count]:
-#                 correctValues += 1
-
-#             if i == guess[count]:
-#                 countC += 1
-
-#         count += 1   
-#     return str(countC) + "A" + str(correctValues) + "B"
-        
+       
 
 def getHint(secret, guess):
     """
@@ -29,40 +8,29 @@ def getHint(secret, guess):
     """
     countC = 0
     correctValues = 0
-    count = 0
-    tempList = ""
+    modString = ""
     
-    for i in secret:
-        if i in guess:
+    for idx, value in enumerate(secret):
+        # Finds match and location is correct
+        if (value in guess) and (value == guess[idx]):
+            countC += 1
 
-            # Finds match and location is correct
-            if i == guess[count]:
-                countC += 1
-
-                guess = guess[:guess.index(i)] + "x" + guess[guess.index(i)+1:]
-                tempList += "x"
-
-            else:
-                tempList += i
+            guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
+            modString += "x"
 
         else:
-            tempList += i
+            modString += value
 
-        count += 1
-
-    count = 0
-    for ii in tempList:
-        if ii in guess:
-
-            print("tempList", tempList, "letter", ii, "guess letter", guess[count], "guess", guess)
-            print("-------------------------", count)
-
+    if modString != guess:  # If strings are the same, break, there are no wrong location matches
+        for idx, value in enumerate(modString):
             # Finds match and location is NOT correct
-            if ii != guess[count]:
-                guess = guess[:guess.index(ii)] + "x" + guess[guess.index(ii)+1:]
+            if (value in guess) and (value != guess[idx]):
                 correctValues += 1
 
-        count += 1
+                print("modString", modString, "letter", value, "guess letter", guess[idx], "guess", guess)
+                print("-------------------------", idx)
+
+                guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
 
     return str(countC) + "A" + str(correctValues) + "B"
 
