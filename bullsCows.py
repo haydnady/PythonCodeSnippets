@@ -21,7 +21,7 @@ def getHint(secret, guess):
             if (value in guess) and (value == guess[idx]):
                 bulls += 1
                 # x out the values that should no longer be matched
-                guess = guess[:guess.index(value)] + "x" + guess[guess.index(value)+1:]
+                guess = guess[:idx] + "x" + guess[idx+1:]
                 modString += "x"
 
             else:
@@ -61,6 +61,9 @@ assert getHint("1122", "2211") == "0A4B"
 
 print("==============>", getHint("2962", "7236"))
 assert getHint("2962", "7236") == "0A2B"
+
+print("==============>", getHint("011", "110"))
+assert getHint("011", "110") == "1A2B"
 
 print("==============>", getHint("11", "01"))
 assert getHint("11", "01") == "1A0B"
