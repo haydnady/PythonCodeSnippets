@@ -3,6 +3,8 @@ class ListNode:
         self.val = val
         self.next = next
 
+head = None 
+
 
 def addTwoNumbers(l1: "Optional[ListNode]", l2: "Optional[ListNode]") -> "Optional[ListNode]":
     val1 = 0
@@ -18,8 +20,8 @@ def addTwoNumbers(l1: "Optional[ListNode]", l2: "Optional[ListNode]") -> "Option
 
     # Convert value to string, reverse, then turn back to integer
     # print(int(str(val3)[::-1]))
-
-    addToLinkedList(str(val3))
+    for va in str(val3):
+        append(int(va))
 
 
 def getLinkedListValues(linkedList):
@@ -35,14 +37,31 @@ def getLinkedListValues(linkedList):
     return int(value[::-1])
 
 
-def addToLinkedList(val):
-    output = ListNode(val[0])
+# This function is defined in Linked List
+# class appends a new node at the end.
+# This method is defined inside LinkedList
+# class shown above
+def append(new_data):
+   global head
 
-    for v in  val:
-        output.next = ListNode(int(v))
+   # 1. Create a new node
+   # 2. Put in the data
+   # 3. Set next as None
+   new_node = ListNode(new_data)
 
-    printLinkedList(output)
-    return output
+   # 4. If the Linked List is empty, then
+   #    make the new node as head
+   if head is None:
+       head = new_node
+       return
+
+   # 5. Else traverse till the last node
+   last = head
+   while (last.next):
+       last = last.next
+
+   # 6. Change the next of last node
+   last.next = new_node
 
 
 def printLinkedList(linkedList):
@@ -70,4 +89,12 @@ e11.next = e22
 e22.next = e33
 v2 = e11
 
-print("Passed!" if addTwoNumbers(l1=v1, l2=v2) == [7,0,8] else "Failed!")
+e111 = ListNode(8)
+e222 = ListNode(0)
+e333 = ListNode(7)
+
+e111.next = e222
+e222.next = e333
+v3 = e111
+
+print("Passed!" if addTwoNumbers(l1=v1, l2=v2) == v3 else "Failed!")
