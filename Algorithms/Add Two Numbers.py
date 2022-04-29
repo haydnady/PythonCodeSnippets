@@ -41,11 +41,11 @@ def addToLinkedList(val):
     for v in  val:
         output.next = ListNode(int(v))
 
-    listprint(output)
+    printLinkedList(output)
     return output
 
 
-def listprint(linkedList):
+def printLinkedList(linkedList):
     theLst = linkedList
 
     while theLst is not None:
@@ -71,5 +71,3 @@ e22.next = e33
 v2 = e11
 
 print("Passed!" if addTwoNumbers(l1=v1, l2=v2) == [7,0,8] else "Failed!")
-# print("Passed!" if addTwoNumbers(nums=[-1,-2,-3,-4,-5], target=-8) == [2,4] else "Failed!")
-# print("Passed!" if addTwoNumbers(nums=[-3,4,3,90], target=0) == [0,2] else "Failed!")
