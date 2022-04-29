@@ -63,6 +63,8 @@ def append(new_data):
    # 6. Change the next of last node
    last.next = new_node
 
+   printLinkedList(new_node)
+
 
 def printLinkedList(linkedList):
     theLst = linkedList
