@@ -7,9 +7,10 @@ class SearchRecommendation():
 
     def __init__(self, searchable_list) -> None:
         self.searchable_list = searchable_list
+        self.create_searchable_object()
 
 
-    def searchable_data(self) -> dict:
+    def create_searchable_object(self) -> dict:
         """Adds list data to dictionary of sets for key alphabet letter search"""
 
         for word in self.data_list:
