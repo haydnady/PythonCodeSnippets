@@ -83,7 +83,19 @@ if __name__ == "__main__":
     print("Passed!" if search_one.searchable_dict["c"] == {'car', 'cool'} else "Failed.")
     print("Passed!" if search_one.searchable_dict["s"] == {'stereo'} else "Failed.")
     print("Passed!" if search_one.searchable_dict["t"] == {'ten'} else "Failed.")
+    print("-----------------")
 
 
-    # Test if searched returns proper values
-    
+    # Test if searched word returns proper values
+    print("Passed!" if search_one.search_word("h").sort() == ["hello", "help", "hard"].sort() else "Failed.")
+    print("Passed!" if search_one.search_word("he").sort() == ["hello", "help"].sort() else "Failed.")
+    print("Passed!" if search_one.search_word("hell") == ["hello"] else "Failed.")
+    print("Passed!" if search_one.search_word("help") == ["help"] else "Failed.")
+
+    # The word "hide" should also be added to set since it does not exist
+    print("Passed!" if search_one.search_word("hide") == None else "Failed.")
+    print("Passed!" if search_one.search_word("hideout") == None else "Failed.")
+    # print(search_one.searchable_dict["h"])
+    # Search for the words that were not found before again
+    print("Passed!" if search_one.search_word("hide").sort() == ["hide", "hideout"].sort() else "Failed.")
+
